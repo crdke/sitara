@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sitara Wireframes</title>
+<style>
+  :root { --ink: #222; --line: #888; --soft: #eee; --bg: #fafafa; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  header { max-width: 1100px; margin: 0 auto; padding: 24px 16px 0; }
+  h1 { margin: 0 0 4px; font-size: 28px; }
+  header p { margin: 4px 0; color: #555; }
+  .row { max-width: 1100px; margin: 0 auto; padding: 16px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; }
+  .screen h2 { font-size: 18px; margin: 0 0 8px; }
+  .phone { width: 300px; max-width: 100%; height: 600px; margin: 0 auto; border: 3px solid var(--ink); border-radius: 34px; padding: 18px 14px; background: #fff; position: relative; overflow: hidden; }
+  .bar { height: 34px; border: 2px solid var(--line); border-radius: 8px; display: flex; align-items: center; justify-content: space-between; padding: 0 8px; font-size: 12px; font-weight: 700; }
+  .box { border: 2px dashed var(--line); border-radius: 12px; padding: 8px; margin: 10px 0; font-size: 13px; text-align: center; }
+  .big { font-size: 30px; font-weight: 800; text-align: center; margin: 6px 0; }
+  .mic { width: 110px; height: 110px; border-radius: 50%; border: 3px solid var(--ink); margin: 8px auto; display: grid; place-items: center; font-size: 13px; font-weight: 700; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .tile { height: 78px; border: 2px solid var(--ink); border-radius: 12px; display: grid; place-items: center; font-weight: 700; font-size: 13px; text-align: center; }
+  .tile.red { background: #ddd; border-width: 4px; }
+  .btn { border: 2px solid var(--ink); border-radius: 10px; padding: 12px 6px; margin: 8px 0; text-align: center; font-weight: 700; font-size: 14px; }
+  .btn.fill { background: #ddd; }
+  .dim { position: absolute; inset: 0; background: rgba(0,0,0,.25); }
+  .modal { position: absolute; left: 14px; right: 14px; top: 120px; background: #fff; border: 3px solid var(--ink); border-radius: 18px; padding: 14px; text-align: center; }
+  .contact { display: flex; align-items: center; gap: 10px; border: 2px solid var(--ink); border-radius: 12px; padding: 8px; margin: 8px 0; font-size: 14px; font-weight: 700; }
+  .avatar { width: 46px; height: 46px; border-radius: 50%; border: 2px solid var(--ink); display: grid; place-items: center; }
+  .says { background: #fff; border-left: 6px solid var(--ink); padding: 10px 12px; margin-top: 12px; font-size: 14px; }
+  .says b { display: block; font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: #555; }
+  .does { font-size: 14px; color: #333; margin-top: 8px; }
+  .note { font-size: 11px; color: #666; text-align: center; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Sitara — wireframes</h1>
+  <p>Three key screens, drawn simply (no colours) to plan the layout before building. The working prototype is at <a href="index.html">index.html</a>.</p>
+</header>
+
+<div class="row">
+  <section class="screen">
+    <h2>Screen 1 — Home / Speak</h2>
+    <div class="phone">
+      <div class="bar"><span>★ Sitara</span><span>🌐 Language · A+</span></div>
+      <div class="box">Good evening, Kamala</div>
+      <div class="big">8:30 PM</div>
+      <div class="box">NEXT MEDICINE: Atorvastatin · 9:30 PM</div>
+      <div class="mic">🎤 TAP &amp; SPEAK</div>
+      <div class="box">[ Or type your question ] [Ask]</div>
+      <div class="grid">
+        <div class="tile">💊<br>Medicines</div><div class="tile">📞<br>Call Family</div>
+        <div class="tile">🗓️<br>My Day</div><div class="tile red">🆘<br>HELP</div>
+      </div>
+      <p class="note">More ▾ Food · Kitchen · Doctor · Calendar · Music · Camera</p>
+    </div>
+    <div class="says"><b>Sitara says</b>“Good evening, Kamala. Tap and speak.” → after “what time is it?”: “It is 8:30 PM now.”</div>
+    <p class="does">One big microphone and four big picture buttons. The elder can speak or tap. Nothing is hidden in menus; text is at least 22px.</p>
+  </section>
+
+  <section class="screen">
+    <h2>Screen 2 — Medicine reminder</h2>
+    <div class="phone">
+      <div class="bar"><span>★ Sitara</span><span>🌐 · A+</span></div>
+      <div class="big">8:30 PM</div>
+      <div class="dim"></div>
+      <div class="modal">
+        <div style="font-size:42px">💊</div>
+        <div style="font-weight:800;font-size:18px">Medicine time</div>
+        <p style="font-size:14px">Please take 1 tablet of Metformin 500 mg, after food.</p>
+        <div class="btn fill">✅ I took it</div>
+        <div class="btn">⏰ Remind me in 10 minutes</div>
+      </div>
+    </div>
+    <div class="says"><b>Sitara says</b>“It is time for your medicine. Please take 1 tablet of Metformin 500 mg, after food.” (with a chime and vibration)</div>
+    <p class="does">Pops up on its own at the right time. Only two choices. If there is no answer for 30 minutes, Sitara asks “Are you okay?” and calls family if there is still no answer.</p>
+  </section>
+
+  <section class="screen">
+    <h2>Screen 3 — Calling a family member</h2>
+    <div class="phone">
+      <div class="bar"><span>‹ Back</span><span>📞 Call Family</span></div>
+      <div class="box">🎤 Whom should I call?</div>
+      <div class="contact"><span class="avatar">R</span>Ravi ⭐<br>Son</div>
+      <div class="contact"><span class="avatar">P</span>Priya<br>Daughter</div>
+      <div class="contact"><span class="avatar">A</span>Arjun<br>Grandson</div>
+      <div class="dim"></div>
+      <div class="modal">
+        <div style="font-size:42px">📞</div>
+        <div style="font-weight:800;font-size:18px">Call Ravi?</div>
+        <div class="btn fill">📞 Yes</div>
+        <div class="btn">No</div>
+      </div>
+    </div>
+    <div class="says"><b>Sitara says</b>“Whom should I call?” → elder: “Call my son” → “Call Ravi?” → “Calling Ravi…”</div>
+    <p class="does">Big photo-style cards. Works with a name (“Ravi”, “रवि”, “രവി”) or a relation (“my son”, “बेटे को”, “മകനെ”). Always asks before calling, so a wrong name never calls the wrong person.</p>
+  </section>
+</div>
+</body>
+</html>
